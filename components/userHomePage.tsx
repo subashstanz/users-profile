@@ -62,21 +62,12 @@ function UserHomePage(props: any) {
   const router = useRouter();
   const [singleUserData, setSingleUserData] = useState<Record<string, any>>({});
   const [openContext, setOpenContext] = useState<Boolean>(false);
-  console.log("singleUserData", singleUserData);
-
-  // const router = useRouter();
-  // const currentUser = useContext(UserDataContext)
-  // console.log('rouer',currentUser)
 
   useEffect(() => {
-    console.log("props.userId", props.userId);
-    console.log("contextValue", contextValue);
     if (props.userId && contextValue?.length) {
-      console.log("test");
       const selectedUser = contextValue?.filter((user) => {
         return user.id == props.userId;
       });
-      console.log("selectedUser", selectedUser);
       if (selectedUser?.length) {
         setSingleUserData({ ...selectedUser[0] });
       }
